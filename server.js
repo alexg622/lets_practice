@@ -5,6 +5,9 @@ const bodyParser = require('body-parser')
 const db = require('./.git/keys').mongoURI
 const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
+const cors = require('cors')
+
+app.use(cors())
 
 mongoose.connect(db).then(() => console.log("mongoDB is connected"))
 
@@ -12,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use('/api/users', users)
-app.use('/api/posts', posts) 
+app.use('/api/posts', posts)
 
 app.get('/test', (req, res) => res.send("testing works"))
 
