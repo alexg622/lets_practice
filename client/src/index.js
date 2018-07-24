@@ -9,6 +9,7 @@ import axios from 'axios'
 document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore()
   window.axios = axios
+  window.store = store
   window.fetchPosts = fetchPosts
   const root = document.getElementById("root")
   ReactDOM.render(<Root store={store}/>, root)
